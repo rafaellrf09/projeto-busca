@@ -23,7 +23,6 @@ export default function SearchComponent() {
         const response = await axios.post(`http://localhost:3000/search`, {
             search: encodeURI(query)
         })
-        console.log(response.data)
         setResponses(response.data)
     };
 
@@ -61,9 +60,6 @@ export default function SearchComponent() {
                         <List
                             pagination={{
                                 align:"center",
-                                onChange: (page) => {
-                                    console.log(page);
-                                },
                                 pageSize: 5,
                             }}
                             itemLayout="horizontal"
