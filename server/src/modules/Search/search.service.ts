@@ -15,7 +15,7 @@ export class SearchService {
     ) { }
 
     async search(makeSearchDto: MakeSearchSDTO): Promise<Search> {
-        const response = await firstValueFrom(this.httpService.get(`http://localhost:8000/search/${makeSearchDto.search}`)
+        const response = await firstValueFrom(this.httpService.get(`http://bot:8000/search/${makeSearchDto.search}`)
             .pipe(
                 map(res => res.data),
                 // tap(data => console.log(data))

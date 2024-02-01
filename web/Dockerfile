@@ -1,6 +1,6 @@
 FROM node:18.18.2
 
-WORKDIR /app
+WORKDIR /web/app
 
 COPY package.json .
 RUN npm i

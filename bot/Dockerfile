@@ -1,6 +1,6 @@
 FROM golang:1.21.6
 
-WORKDIR /app
+WORKDIR /bot/app
 
 COPY go.mod go.sum ./
 RUN go mod download
