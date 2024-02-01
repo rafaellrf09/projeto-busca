@@ -4,7 +4,6 @@ import (
 	"context"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	"google.golang.org/api/customsearch/v1"
@@ -26,11 +25,8 @@ type Result struct {
 }
 
 func googleSearch(query string) (Result, error) {
-	apiKey := os.Getenv("API_KEY")
-	cx := os.Getenv("SEARCH_ENGINE_ID")
-
 	ctx := context.Background()
-	svc, err := customsearch.NewService(ctx, option.WithAPIKey(apiKey))
+	svc, err := customsearch.NewService(ctx, option.WithAPIKey("AIzaSyCMtZsUezBCIa8wOBvTXlHmM_fBw8dRSgw"))
 	if err != nil {
 		log.Fatalf("Unable to create Custom Search service: %v", err)
 		return Result{}, err
@@ -41,7 +37,7 @@ func googleSearch(query string) (Result, error) {
 	var totalResults string
 
 	for start < 40 {
-		call := svc.Cse.List().Cx(cx).Q(query).Gl("br").Start(start)
+		call := svc.Cse.List().Cx("002aaf57fb1d8420c").Q(query).Gl("br").Start(start)
 		response, err := call.Do()
 		if err != nil {
 			log.Fatalf("Error making search request: %v", err)
