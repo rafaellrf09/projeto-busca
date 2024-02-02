@@ -3,9 +3,12 @@ FROM node:18.18.2
 WORKDIR /web/app
 
 COPY package.json .
+
 RUN npm i
 
 COPY . .
+
+COPY .env.development ./
 
 EXPOSE 5173
 
