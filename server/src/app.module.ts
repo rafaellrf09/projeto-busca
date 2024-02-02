@@ -1,11 +1,16 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SearchModule } from './modules/Search/search.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   //change the url file for test
   imports: [
-    MongooseModule.forRoot('mongodb://mongodb:27017/projeto_busca'), SearchModule],
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    MongooseModule.forRoot(process.env.MONGO_URL),
+    SearchModule],
   controllers: [],
   providers: [],
 })

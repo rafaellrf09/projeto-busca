@@ -20,7 +20,7 @@ export default function SearchComponent() {
     const [query, setQuery] = useState('');
     const [responses, setResponses] = useState<Result>()
     const handleSearch = async () => {
-        const response = await axios.post(`http://127.0.0.1:3000/search`, {
+        const response = await axios.post(import.meta.env.SERVER_URL, {
             search: encodeURI(query)
         })
         setResponses(response.data)

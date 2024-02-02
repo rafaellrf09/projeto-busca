@@ -5,7 +5,7 @@ import { Search } from './search.interface';
 import { MakeSearchSDTO } from './dtos/make-search.dto';
 import { HttpService } from '@nestjs/axios';
 import { CreateSearchDTO } from './dtos/create-search.dto';
-import { firstValueFrom, lastValueFrom, map, tap } from 'rxjs';
+import { firstValueFrom, map } from 'rxjs';
 
 @Injectable()
 export class SearchService {
@@ -15,11 +15,8 @@ export class SearchService {
     ) { }
 
     async search(makeSearchDto: MakeSearchSDTO): Promise<Search> {
-        const response = await firstValueFrom(this.httpService.get(`http://bot:8000/search/${makeSearchDto.search}`)
-            .pipe(
-                map(res => res.data),
-                // tap(data => console.log(data))
-            ))
+        const response = await firstValueFrom(this.httpService.get(`${process.env.BOT_URL}/search/${makeSearchDto.search}`)
+            .pipe(map(res => res.data),))
 
         const newSearch = new this.searchModel({
             search: makeSearchDto.search,
