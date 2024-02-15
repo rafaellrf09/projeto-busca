@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { MagnifyingGlass } from "phosphor-react"
+import { MagnifyingGlass } from "@phosphor-icons/react"
 import { List } from 'antd';
 import axios from 'axios';
 
-import logoImage from "../assets/Logo.png"
+import logoImage from "../../assets/Logo.png"
 
 interface Result {
     search: string
@@ -16,7 +16,7 @@ interface Result {
     }>
 }
 
-export default function SearchComponent() {
+export default function Search() {
     const [query, setQuery] = useState('');
     const [responses, setResponses] = useState<Result>()
     const handleSearch = async () => {
@@ -59,7 +59,7 @@ export default function SearchComponent() {
                         </p>
                         <List
                             pagination={{
-                                align:"center",
+                                align: "center",
                                 pageSize: 5,
                             }}
                             itemLayout="horizontal"
