@@ -27,7 +27,3 @@ services:
 
 volumes:
   mongodb_data_container:
-
-networks:
-  rabbitmq_go_net:
-    driver: bridge
