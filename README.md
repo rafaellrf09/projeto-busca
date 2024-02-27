@@ -1,4 +1,4 @@
-**Projeto Busca**
+# Projeto Busca
 
 Este projeto consiste em uma aplicação web integrada com um servidor e um bot, proporcionando uma experiência completa para os usuários. O objetivo principal é oferecer uma plataforma onde o usuário possa realizar buscas através da api do Google de pesquisa.
 
