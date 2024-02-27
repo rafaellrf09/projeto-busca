@@ -1,6 +1,6 @@
 FROM node:18.18.2
 
-WORKDIR /server/app
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-COPY .env.development ./
+COPY .env.development ./.env
 
 EXPOSE 3000
 

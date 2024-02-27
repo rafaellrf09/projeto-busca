@@ -1,6 +1,6 @@
 FROM golang:1.21.6
 
-WORKDIR /bot/app
+WORKDIR /app
 
 COPY go.mod go.sum ./
 
@@ -8,7 +8,7 @@ RUN go mod download
 
 COPY . . 
 
-COPY .env.development ./
+COPY .env.development ./.env
 
 RUN go build -o bot ./cmd/main.go
 
